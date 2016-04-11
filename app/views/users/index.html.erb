@@ -1,0 +1,21 @@
+<div>
+	<table>
+		<tr>
+			<td>first_name</td><td>last_name</td><td>age</td>
+		</tr>
+			<% @users.each do |user| %>
+			<tr>
+				<td><%=user.first_name%></td><td><%=user.last_name%></td><td><%=user.age%></td><td> <a href="/users/destroy/<%=user.id%>"> Delete </a> </td>
+			</tr>
+			<% end %>
+	</table>
+</div>
+<div>
+	<form action="/users/add" method="post">
+		<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+		<input type="text" name="first_name">
+		<input type="text" name="last_name">
+		<input type="text" name="age">
+		<input type="submit" value="Add"> 		
+	</form>
+</div>
